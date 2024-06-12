@@ -33,39 +33,46 @@ public NativeMappedArray(int keyCapacity, int arrayCapacity, Allocator allocator
 ------------
 
 #### Add
-If the key doesn't exist, add a key with an empty chunk and return true .
 ```c#
 public bool AddKey(TKey key) 
 ```
-Add value to the last chunk of the key. If a new chunk is added, return true.
+If the key doesn't exist, add a key with an empty chunk and return true .
+
 ```c#
 public bool Add(TKey key, TValue value) 
 ```
+Add value to the last chunk of the key. If a new chunk is added, return true.
+
 ------------
 
 #### Remove
 
-Remove a key and all its chunck.
+
 ```c#
 public bool RemoveKey(TKey key)
 ```
+Remove a key and all its chunck.
 
-Remove the first item in key's chunks that `Equals(value)`.
-(In the worst case, this will traverse all items in chunks that belongs to key.)
+
 ```c#
 public bool Remove(TKey key, TValue value)
 ```
+Remove the first item in key's chunks that `Equals(value)`.
+(In the worst case, this will traverse all items in chunks that belongs to key.)
 
-Remove the `valueIndex % chunkSize` item at the `valueIndex / chunkSize` chunk of the key. Use this instead of `Remove()`if possible.
+
 ```c#
 public void RemoveAt(TKey key, int valueIndex)
 ```
+Remove the `valueIndex % chunkSize` item at the `valueIndex / chunkSize` chunk of the key. Use this instead of `Remove()`if possible.
+
 ------------
 
 #### Access Data
-The best way to get all values:
 ```c#
 NativeMappedArray<K, V> map;
+
+/* The best way to get all values */
 
 int valueCount = map.ValueCount(k)
 for (int i = 0; i < valueCount; i++)

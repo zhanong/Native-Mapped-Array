@@ -11,22 +11,26 @@ This data structure comes from my personal game. It is unmanaged so capable for 
 ## Idea
 
 ##### Basic Structure
-![](https://github.com/zhanong/Native-Mapped-Array/blob/main/image/basic.jpg?raw=true)
+<img src="https://github.com/zhanong/Native-Mapped-Array/blob/main/image/basic.jpg?raw=true" alt="drawing" width="50%"/>
+
 ##### Adding Item
-![](https://github.com/zhanong/Native-Mapped-Array/blob/main/image/add.jpg?raw=true)
+<img src="https://github.com/zhanong/Native-Mapped-Array/blob/main/image/add.jpg?raw=true" alt="drawing" width="50%"/>
+
 ##### Removing Item
-![](https://github.com/zhanong/Native-Mapped-Array/blob/main/image/remove.jpg?raw=true)
+<img src="https://github.com/zhanong/Native-Mapped-Array/blob/main/image/remove.jpg?raw=true" alt="drawing" width="50%"/>
+
 
 
 ## How to Use
 
-####Constructor
+#### Constructor
 ```c#
 public NativeMappedArray(int keyCapacity, int arrayCapacity, Allocator allocator)
 ```
 `keyCapacity`  How many keys are expected to contain.
 `arrayCapacity`   'Array capacity' for each key.
-####Add
+
+#### Add
 If the key doesn't exist, add a key with an empty chunk and return true .
 ```c#
 public bool AddKey(TKey key) 
@@ -35,7 +39,7 @@ Add value to the last chunk of the key. If a new chunk is added, return true.
 ```c#
 public bool Add(TKey key, TValue value) 
 ```
-####Remove
+#### Remove
 
 Remove a key and all its chunck.
 ```c#
@@ -53,7 +57,7 @@ Remove the `valueIndex % chunkSize` item at the `valueIndex / chunkSize` chunk o
 public void RemoveAt(TKey key, int valueIndex)
 ```
 
-####Access Data
+#### Access Data
 The best way to get all values:
 ```c#
 NativeMappedArray<K, V> map;
@@ -69,6 +73,6 @@ for (int i = 0; i < valueCount; i++)
 ------------
 
 
-##In the Future
+## In the Future
 The chunk is implemented as List6. It's size is fixed as 6. It's better to make chunk type as a generic type for the structure.
 

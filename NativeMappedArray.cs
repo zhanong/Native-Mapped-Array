@@ -117,6 +117,7 @@ namespace ZhCollection
             list = new List6<TValue>();
             list.Add(value);
             data.Add(lastChunkKey, list);
+            chunkNumbs[key] += 1;
             return true;
         }
 
@@ -163,7 +164,7 @@ namespace ZhCollection
             }
 
             // If not, move the last value of the last chunk to the remove slot.
-            var lastChunk = data[chunkNumbs[key]];
+            var lastChunk = data[GetHash(key, chunkNumbs[key])];
             var lastValue = lastChunk[lastChunk.Length - 1];
 
             list.ChangeValueAt(indexInChunk, lastValue);

@@ -178,7 +178,7 @@ namespace ZhCollection
 
             // Otherwise, remove the last value.
             lastChunk.RemoveAt(lastChunk.Length - 1);
-            data[chunkNumbs[key]] = lastChunk;
+            data[GetHash(key, chunkNumbs[key])] = lastChunk;
         }
         #endregion Modifier
 

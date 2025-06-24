@@ -29,7 +29,6 @@ public NativeMappedArray(int keyCapacity, int arrayCapacity, Allocator allocator
 `keyCapacity`  How many keys are expected to contain.
 `arrayCapacity`   'Array capacity' for each key.
 
-------------
 
 ## Add
 ```c#
@@ -42,7 +41,6 @@ public bool Add(TKey key, TValue value)
 ```
 Add value to the last chunk of the key. If a new chunk is added, return true.
 
-------------
 
 ## Remove
 
@@ -65,7 +63,6 @@ public void RemoveAt(TKey key, int valueIndex)
 ```
 Remove the `valueIndex % chunkSize` item at the `valueIndex / chunkSize` chunk of the key. Use this instead of `Remove()`if possible.
 
-------------
 
 ## Access Data
 ```c#

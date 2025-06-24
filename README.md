@@ -8,7 +8,7 @@ It has the following features:
 - Burst-Compilable.
 - Shares capacity space among keys.
 
-## Inside of It
+# Inside of It
 
 ![](img/structure.png)
 
@@ -20,9 +20,9 @@ Each chunk belongs to one key. However, the ordering of chunks inside the **Nati
 ![](img/remove.png)
 
 
-## Usage
+# Usage
 
-#### Constructor
+## Constructor
 ```c#
 public NativeMappedArray(int keyCapacity, int arrayCapacity, Allocator allocator)
 ```
@@ -31,7 +31,7 @@ public NativeMappedArray(int keyCapacity, int arrayCapacity, Allocator allocator
 
 ------------
 
-#### Add
+## Add
 ```c#
 public bool AddKey(TKey key) 
 ```
@@ -44,7 +44,7 @@ Add value to the last chunk of the key. If a new chunk is added, return true.
 
 ------------
 
-#### Remove
+## Remove
 
 
 ```c#
@@ -67,7 +67,7 @@ Remove the `valueIndex % chunkSize` item at the `valueIndex / chunkSize` chunk o
 
 ------------
 
-#### Access Data
+## Access Data
 ```c#
 NativeMappedArray<K, V> map;
 
@@ -81,6 +81,6 @@ for (int i = 0; i < valueCount; i++)
 }
 ```
 
-## In the Future
+# In the Future
 The chunk is implemented as List6. It's size is fixed as 6. It's better to make chunk type as a generic type for the structure.
 

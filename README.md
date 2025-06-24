@@ -1,27 +1,26 @@
-# Native Mapped Array
+[View on Github](https://github.com/zhanong/Native-Mapped-Array/tree/main)
 
-This data structure comes from my personal game. It is unmanaged so capable for burst-compile. It is simple and easy to modify but not necessarily the most efficient.
+Essentially, the **Native Mapped Array** is unmanaged struct of a hashmap of arrays.
+
+![](img/function.png)
+
+It has the following features:
+- Burst-Compilable.
+- Shares capacity space among keys.
+
+## Inside of It
+
+![](img/structure.png)
+
+Inside the struct, the values are actually stored in chunks with a fixed size. Each **key** is mapped to multiple chunks through **Chunk Hashes**.
+Each chunk belongs to one key. However, the ordering of chunks inside the **Native Hash Map 2** is not defined by keys but by the order of adding.
+
+![](img/query.png)
+![](img/add.png)
+![](img/remove.png)
 
 
-## FEATURE
-1. Burst-Compilable.
-2. Shares capacity space among keys.
-
-
-## IDEA
-
-#### Basic Structure
-<img src="https://github.com/zhanong/Native-Mapped-Array/blob/main/image/basic.jpg?raw=true" alt="drawing" width="50%"/>
-
-#### Adding Item
-<img src="https://github.com/zhanong/Native-Mapped-Array/blob/main/image/add.jpg?raw=true" alt="drawing" width="50%"/>
-
-#### Removing Item
-<img src="https://github.com/zhanong/Native-Mapped-Array/blob/main/image/remove.jpg?raw=true" alt="drawing" width="50%"/>
-
-
-
-## HOW TO USE
+## Usage
 
 #### Constructor
 ```c#
